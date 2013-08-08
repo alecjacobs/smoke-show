@@ -1,0 +1,16 @@
+.box {
+	position: absolute;
+	background-color: blue;
+	width: 100px;
+	height: 100px;
+	-webkit-transition: width 2s, height 2s;
+	margin: 5px;
+}
+
+.gocrazy {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	-webkit-transform: rotate(-111deg);
+	
+}
