@@ -1,0 +1,10 @@
+.tape {
+	transition: all .5s;
+	font-size: 12px;
+}
+
+.focus {
+	transition: all .5s;
+	font-size: 30px;
+	margin: 0 10px;
+}
