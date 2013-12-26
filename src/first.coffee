@@ -1,24 +1,48 @@
+rand = (top) ->
+	Math.floor((Math.random()*top)+1)
+
+randWithNegs = (maxMin) ->
+	Math.floor((Math.random()*top)-1)
+
 first =
 	init: ->
-		@initBindings()
 		@everyoneGetsBoxes(100)
+		@initBindings()
+		@run()
 
 	initBindings: ->
+		$(".launch-box").click (e) ->
+			first.run()
+
+		$("body").click ->
+			first.run
+
 		$(document).on "click", ".box", (e) ->
 			$currentTarget = $(e.currentTarget)
 			$currentTarget.addClass("gocrazy")
 
 	everyoneGetsBoxes: (num) ->
-		_(num).times (i) -> 
-			$newBox = $("<div></div>").addClass("box").attr("id", "box" + i)
-			$("body").append $newBox
+		_(num).times -> 
+			boxCount = $(".box").length
+			boxId = boxCount + 1
+			newColor = "rgba(" + rand(255) + "," + rand(255) + "," + rand(255) + ",50)"
+			$newBox = $("<div></div>").addClass("box").attr("id", "box" + boxId)
 
-first.init()
+			$(".main.wrapper").prepend $newBox
+			boxId
 
-_.each $(".box"), (box, i) ->
-	console.log box
-	newColor = "rgba(" + (i*3232)%255 + "," + (i*12319)%255 + "," + (i*242340)%255 + ",50)"
-	$(box).css "background-color", newColor
-	$(box).css "-webkit-transition", i * 0.1 + "s all linear"
-	$(box).css "-webkit-transform-origin", (i*23930)%500 + "%" + (i*392023)%500 + "%"
-	$(box).addClass "gocrazy"
+	transformBox: ($box) ->
+		newColor = "rgba(" + rand(255) + "," + rand(255) + "," + rand(255) + ",50)"
+
+		$box.css "-webkit-transition", "1s all linear"
+		$box.css "background-color", newColor
+		$box.css "-webkit-transform-origin", rand(500) + "%" + rand(500) + "%"
+		$box.css "-webkit-transform", "rotate(" + rand(360) + "deg)"
+
+	run: ->
+		boxId = first.everyoneGetsBoxes(1)
+		first.transformBox($("#box" + boxId))
+		
+
+
+first.initBindings()
