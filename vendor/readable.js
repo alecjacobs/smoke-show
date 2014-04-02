@@ -1,2 +1,33 @@
-javascript:
-(function()%7B_readableOptions%3D%7B%27text_font%27:%27quote(Palatino Linotype), Palatino, quote(Book Antigua), Georgia, serif%27,%27text_font_monospace%27:%27quote(Courier New), Courier, monospace%27,%27text_font_header%27:%27quote(Times New Roman), Times, serif%27,%27text_size%27:%2718px%27,%27text_line_height%27:%271.5%27,%27box_width%27:%2730em%27,%27color_text%27:%27%23282828%27,%27color_background%27:%27%23F5F5F5%27,%27color_links%27:%27%230000FF%27,%27text_align%27:%27normal%27,%27base%27:%27blueprint%27,%27custom_css%27:%27%27%7D%3Bif(document.getElementsByTagName(%27body%27).length>0)%3Belse%7Breturn%3B%7Dif(window.%24readable)%7Bif(window.%24readable.bookmarkletTimer)%7Breturn%3B%7D%7Delse%7Bwindow.%24readable%3D%7B%7D%3B%7Dwindow.%24readable.bookmarkletTimer%3Dtrue%3Bwindow.%24readable.options%3D_readableOptions%3Bif(window.%24readable.bookmarkletClicked)%7Bwindow.%24readable.bookmarkletClicked()%3Breturn%3B%7D_readableScript%3Ddocument.createElement(%27script%27)%3B_readableScript.setAttribute(%27src%27,%27http://readable-static.tastefulwords.com/target.js%3Frand%3D%27%2BencodeURIComponent(Math.random()))%3Bdocument.getElementsByTagName(%27body%27)%5B0%5D.appendChild(_readableScript)%3B%7D)()
+(function() {
+	_readableOptions = {
+		'text_font':'quote(Palatino Linotype), Palatino, quote(Book Antigua), Georgia, serif',
+		'text_font_monospace':'quote(Courier New), Courier, monospace',
+		'text_font_header':'quote(Times New Roman), Times, serif',
+		'text_size':'18px','text_line_height':'1.5',
+		'box_width':'30em',
+		'color_text':'#282828',
+		'color_background':'#F5F5F5',
+		'color_links':'#0000FF',
+		'text_align':'normal',
+		'base':'blueprint',
+		'custom_css':''
+	};
+
+	if(document.getElementsByTagName('body').length>0);
+	else{return;}
+
+	if(window.$readable)
+		{if(window.$readable.bookmarkletTimer){return;}}
+	else{window.$readable={};}
+
+	window.$readable.bookmarkletTimer=true;
+	window.$readable.options=_readableOptions;
+	if(window.$readable.bookmarkletClicked){
+		window.$readable.bookmarkletClicked();
+		return;
+	}
+
+	_readableScript = document.createElement('script');
+	_readableScript.setAttribute('src','http://readable-static.tastefulwords.com/target.js?rand='+encodeURIComponent(Math.random()));
+	document.getElementsByTagName('body')[0].appendChild(_readableScript);
+})()
